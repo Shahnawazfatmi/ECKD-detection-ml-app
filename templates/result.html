@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CKD Prediction Result</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #eef2f7, #f8fbff);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: #0d6efd;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .result-card {
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .high {
+            background-color: #ffe5e5;
+            border-left: 6px solid #dc3545;
+        }
+
+        .moderate {
+            background-color: #fff4e5;
+            border-left: 6px solid #ffc107;
+        }
+
+        .low {
+            background-color: #e6ffed;
+            border-left: 6px solid #198754;
+        }
+
+        .risk-score {
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .progress {
+            height: 18px;
+            border-radius: 10px;
+        }
+
+        .suggestion-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            background: #0d6efd;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <span class="navbar-brand">CKD Risk Result</span>
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <!-- RESULT CARD -->
+    <div class="result-card shadow text-center
+        {% if risk_level == 'High' %} high
+        {% elif risk_level == 'Moderate' %} moderate
+        {% else %} low
+        {% endif %}">
+
+        <h2>{{ result }}</h2>
+
+        <!-- Risk Score -->
+        <div class="risk-score mt-3">
+            {{ risk_score }}%
+        </div>
+
+        <p class="text-muted">Estimated Risk Probability</p>
+
+        <h5>Risk Level: <strong>{{ risk_level }}</strong></h5>
+
+        <!-- Progress Bar -->
+        <div class="progress mt-3">
+            <div class="progress-bar
+                {% if risk_level == 'High' %} bg-danger
+                {% elif risk_level == 'Moderate' %} bg-warning
+                {% else %} bg-success
+                {% endif %}"
+                style="width: {{ risk_score }}%">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Suggestions -->
+    <div class="suggestion-box">
+
+        <h4 class="text-primary">Recommended Actions</h4>
+
+        <ul class="list-group mt-3">
+            {% for s in suggestions %}
+                <li class="list-group-item">{{ s }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <!-- Extra Info -->
+    <div class="alert alert-info mt-4">
+        <strong>Important:</strong> This system provides early screening based on an ensemble machine learning model. 
+        It should not replace professional medical diagnosis.
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-3">
+        <a href="/" class="btn btn-primary px-4">Check Another Patient</a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 CKD Detection System | Ensemble ML Healthcare Project</p>
+</footer>
+
+</body>
+</html>

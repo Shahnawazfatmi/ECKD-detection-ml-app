@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About CKD Detection System</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #eef2f7, #f8fbff);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: #0d6efd;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .section-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #0d6efd;
+            margin-right: 10px;
+        }
+
+        .usp-box {
+            background: #e9f2ff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 250px;
+            background: #dfe6f1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            background: #0d6efd;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <span class="navbar-brand">CKD Detection System</span>
+        <a href="/" class="nav-link">Home</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- OVERVIEW + IMAGE -->
+    <div class="section-card">
+        <div class="row align-items-center">
+            
+            <div class="col-md-7">
+                <h3 class="text-primary">
+                    <i class="bi bi-clipboard-data icon"></i>Project Overview
+                </h3>
+
+                <p>
+                    This system performs early-stage screening of Chronic Kidney Disease (CKD) using structured clinical inputs. 
+                    It applies supervised machine learning models to identify risk patterns that are often missed in early diagnosis.
+                </p>
+
+                <p>
+                    Multiple models were evaluated, and a final <strong>Ensemble Model (Logistic Regression + Random Forest)</strong> 
+                    was selected based on performance consistency and recall optimization.
+                </p>
+
+                <p>
+                    The focus is on <strong>high recall</strong>, ensuring potential CKD cases are not missed — a critical requirement in medical screening systems.
+                </p>
+            </div>
+
+            <!-- IMAGE PLACEHOLDER -->
+            <div class="col-md-5">
+                <div class="img-box">
+                    Kidney Diagram / Model Visualization
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- USP -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-star icon"></i>System Strengths
+        </h4>
+
+        <div class="usp-box mt-2">
+            <ul>
+                <li><strong>Recall-Oriented Design:</strong> Prioritizes detection of risk cases to avoid missed diagnosis.</li>
+                <li><strong>Ensemble Stability:</strong> Reduces model variance and improves generalization.</li>
+                <li><strong>Clinical Relevance:</strong> Uses medically significant parameters aligned with CKD indicators.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CKD -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-heart-pulse icon"></i>CKD Overview
+        </h4>
+
+        <p>
+            Chronic Kidney Disease is a progressive condition where kidney function declines over time, leading to toxin buildup 
+            and systemic health complications.
+        </p>
+
+        <div class="alert alert-warning">
+            CKD is often asymptomatic in early stages, making data-driven screening essential for timely intervention.
+        </div>
+    </div>
+
+    <!-- STAGES -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-bar-chart icon"></i>CKD Stages
+        </h4>
+
+        <div class="row text-center">
+            <div class="col-md-2"><div class="usp-box">Stage 1<br><small>Normal</small></div></div>
+            <div class="col-md-2"><div class="usp-box">Stage 2<br><small>Mild</small></div></div>
+            <div class="col-md-2"><div class="usp-box">Stage 3<br><small>Moderate</small></div></div>
+            <div class="col-md-2"><div class="usp-box">Stage 4<br><small>Severe</small></div></div>
+            <div class="col-md-2"><div class="usp-box">Stage 5<br><small>Failure</small></div></div>
+        </div>
+    </div>
+
+    <!-- TECH -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-cpu icon"></i>Technology Stack
+        </h4>
+
+        <ul>
+            <li><strong>Backend:</strong> Python (Flask)</li>
+            <li><strong>Frontend:</strong> HTML, CSS, Bootstrap</li>
+            <li><strong>Models:</strong> Logistic Regression, Random Forest, XGBoost</li>
+            <li><strong>Final Model:</strong> Ensemble (LR + RF)</li>
+        </ul>
+    </div>
+
+    <!-- TEAM -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-people icon"></i>Team & Institution
+        </h4>
+
+        <p><strong>Integral University, Lucknow</strong></p>
+
+        <ul>
+            <li>Shahnawaz Akhtar Fatmee</li>
+            <li>Rameez Rehan</li>
+            <li>Sadique Ansari</li>
+        </ul>
+    </div>
+
+    <!-- SUPERVISOR -->
+    <div class="section-card">
+        <h4 class="text-primary">
+            <i class="bi bi-person-badge icon"></i>Acknowledgment
+        </h4>
+
+        <p>
+            We extend our sincere gratitude to <strong>Minhajul Afreen Sir</strong> for his continuous guidance and support. 
+            His mentorship significantly contributed to the development and refinement of this system.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 CKD Detection System | Integral University Lucknow</p>
+</footer>
+
+</body>
+</html>

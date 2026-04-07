@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Early CKD Detection System</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #eef2f7, #f8fbff);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background: #0d6efd;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .card {
+            border-radius: 15px;
+            border: none;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #0d6efd;
+            margin-top: 10px;
+        }
+
+        .fact-box {
+            background: #e9f2ff;
+            border-left: 5px solid #0d6efd;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            background: #0d6efd;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <span class="navbar-brand">CKD Predictor</span>
+        <div>
+            <a href="/" class="nav-link d-inline">Home</a>
+            <a href="/about" class="nav-link d-inline">About</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <!-- HEADER -->
+    <div class="text-center">
+        <h2 class="text-primary">Early CKD Detection System</h2>
+        <p class="text-muted"><p class="text-muted">Kidney Risk Screening using Ensemble Machine Learning Model</p>p>
+    </div>
+
+    <!-- FACT -->
+    <div class="fact-box text-center shadow-sm">
+        <strong>Fact:</strong> CKD affects 850M+ people globally and causes millions of deaths due to late diagnosis.
+    </div>
+
+    <!-- FORM -->
+    <div class="card shadow p-4 mt-4">
+
+        <form action="/predict" method="post">
+
+            <!-- Patient Info -->
+            <div class="section-title">Patient Information</div>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Age</label>
+                    <input type="number" name="age" class="form-control" min="1" max="100" placeholder="Enter age (1–100)" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Blood Pressure (mmHg)</label>
+                    <input type="number" name="bp" class="form-control" min="60" max="200" placeholder="Normal: ~80-120" required>
+                </div>
+
+            </div>
+
+            <!-- Lab -->
+            <div class="section-title">Lab Parameters</div>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Specific Gravity</label>
+                    <select name="sg" class="form-control">
+                        <option value="1.005">1.005 (Low)</option>
+                        <option value="1.010">1.010</option>
+                        <option value="1.015">1.015</option>
+                        <option value="1.020">1.020 (Normal)</option>
+                        <option value="1.025">1.025</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Albumin</label>
+                    <select name="al" class="form-control">
+                        <option value="0">0 (Normal)</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3 (High)</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Blood Glucose</label>
+                    <input type="number" name="bgr" class="form-control" min="70" max="400" placeholder="Normal: ~100" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Sugar Level</label>
+                    <select name="su" class="form-control">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Medical -->
+            <div class="section-title">Medical History</div>
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>Hypertension</label>
+                    <select name="htn" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Diabetes</label>
+                    <select name="dm" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Appetite</label>
+                    <select name="appet" class="form-control">
+                        <option value="1">Good</option>
+                        <option value="0">Poor</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Pedal Edema</label>
+                    <select name="pe" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Red Blood Cells</label>
+                    <select name="rbc" class="form-control">
+                        <option value="1">Normal</option>
+                        <option value="0">Abnormal</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Button -->
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary btn-lg px-5">
+                    Predict Risk
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 CKD Detection System | AI Healthcare Project</p>
+</footer>
+
+</body>
+</html>
